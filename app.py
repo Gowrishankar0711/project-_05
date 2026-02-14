@@ -19,6 +19,7 @@ warnings.filterwarnings('ignore')
 def download_nltk_data():
     try:
         nltk.download('punkt', quiet=True)
+        nltk.download('punkt_tab', quiet=True)   
         nltk.download('stopwords', quiet=True)
     except:
         pass
