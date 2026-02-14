@@ -207,21 +207,21 @@ with tab1:
     elif predict_button:
         st.warning("⚠️ Please enter a comment to analyze.")
 
-st.divider()
-        
-        # Model Information
-st.subheader(" Model Architecture")
-model_info = """
-- **Architecture**: BiLSTM (Bidirectional LSTM)
-- **Embedding Layer**: 10,000 vocabulary, 128 dimensions
-- **BiLSTM Units**: 64 with dropout (0.5)
-- **Dense Layers**: 64 units with dropout (0.3) + 1 output unit
-- **Activation**: Sigmoid (Binary Classification)
-- **Loss Function**: Binary Crossentropy
-- **Optimizer**: Adam
-- **Input Length**: 100 tokens (padded)
-"""
-st.markdown(model_info)
+    st.divider()
+            
+            # Model Information
+    st.subheader(" Model Architecture")
+    model_info = """
+    - **Architecture**: BiLSTM (Bidirectional LSTM)
+    - **Embedding Layer**: 10,000 vocabulary, 128 dimensions
+    - **BiLSTM Units**: 64 with dropout (0.5)
+    - **Dense Layers**: 64 units with dropout (0.3) + 1 output unit
+    - **Activation**: Sigmoid (Binary Classification)
+    - **Loss Function**: Binary Crossentropy
+    - **Optimizer**: Adam
+    - **Input Length**: 100 tokens (padded)
+    """
+    st.markdown(model_info)
 
 
 with tab2:
