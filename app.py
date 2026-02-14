@@ -207,52 +207,7 @@ with tab1:
     elif predict_button:
         st.warning("⚠️ Please enter a comment to analyze.")
 
-# TAB 2: Insights and Metrics
 with tab2:
-        # Model Information
-        st.subheader(" Model Architecture")
-        model_info = """
-        - **Architecture**: BiLSTM (Bidirectional LSTM)
-        - **Embedding Layer**: 10,000 vocabulary, 128 dimensions
-        - **BiLSTM Units**: 64 with dropout (0.5)
-        - **Dense Layers**: 64 units with dropout (0.3) + 1 output unit
-        - **Activation**: Sigmoid (Binary Classification)
-        - **Loss Function**: Binary Crossentropy
-        - **Optimizer**: Adam
-        - **Input Length**: 100 tokens (padded)
-        """
-        st.markdown(model_info)
-        
-        # Performance metrics section
-        st.subheader("📈 Model Performance")
-        
-        perf_col1, perf_col2 = st.columns(2)
-        with perf_col1:
-            st.markdown("""
-            **Training Configuration:**
-            - Epochs: 5
-            - Batch Size: 32
-            - Train/Test Split: 80/20
-            - Test Size: 20 percent of total data
-            """)
-        
-        with perf_col2:
-            st.warning("""
-            ⚠️ **Note**: For detailed performance metrics on your test set, 
-            please check the model training output in the notebook.
-            
-            You can enhance performance by:
-            - Training for more epochs
-            - Using larger embedding dimensions
-            - Adding more dense layers
-            - Using ensemble methods
-            """)
-    
-    else:
-        st.error("❌ Could not load training data. Ensure train.csv and test.csv are in the working directory.")
-
-# TAB 3: Bulk Upload
-with tab3:
     st.header("📤 Bulk Comment Analysis")
     st.markdown("Upload a CSV file with comments column named 'comment_text' to get predictions for all comments.")
     
@@ -395,7 +350,7 @@ with tab3:
             st.error(f"❌ Error processing file: {str(e)}")
 
 # TAB 4: About
-with tab4:
+with tab3:
     st.header(" About This Application")
     
     st.markdown("""
