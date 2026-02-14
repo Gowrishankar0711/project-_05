@@ -209,60 +209,6 @@ with tab1:
 
 # TAB 2: Insights and Metrics
 with tab2:
-    st.header(" Data Insights & Model Performance")
-    
-    train_data, test_data = load_data()
-    
-    if train_data is not None and test_data is not None:
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            st.metric("Total Training Samples", f"{len(train_data):,}")
-        with col2:
-            st.metric("Test Samples", f"{len(test_data):,}")
-        with col3:
-            toxic_count = train_data['toxic'].sum()
-            st.metric("Toxic Comments", f"{toxic_count:,}")
-        with col4:
-            non_toxic = len(train_data) - toxic_count
-            st.metric("Non-Toxic Comments", f"{non_toxic:,}")
-        
-        st.divider()
-        
-        # Data distribution
-        st.subheader("Class Distribution in Training Data")
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            # Pie chart
-            fig, ax = plt.subplots(figsize=(6, 5))
-            sizes = [toxic_count, non_toxic]
-            labels = [f'Toxic\n({toxic_count:,})', f'Non-Toxic\n({non_toxic:,})']
-            colors = ['#ff4b4b', '#4CAF50']
-            explode = (0.05, 0)
-            
-            ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
-                   shadow=True, startangle=90)
-            ax.set_title('Class Distribution')
-            st.pyplot(fig, use_container_width=True)
-        
-        with col2:
-            # Bar chart
-            fig, ax = plt.subplots(figsize=(6, 5))
-            ax.bar(['Toxic', 'Non-Toxic'], [toxic_count, non_toxic], color=['#ff4b4b', '#4CAF50'])
-            ax.set_ylabel('Count')
-            ax.set_title('Sample Count by Class')
-            
-            for i, v in enumerate([toxic_count, non_toxic]):
-                ax.text(i, v + 1000, str(v), ha='center', fontweight='bold')
-            
-            st.pyplot(fig, use_container_width=True)
-        
-        
-        
-        
-        st.divider()
-        
         # Model Information
         st.subheader(" Model Architecture")
         model_info = """
